@@ -3,48 +3,24 @@
 ## Summary
 
 Provides an Power Platform Canvas App to mange learning courses. Managed course offers, allows people to register to courses. The App managed the available seats, offers a course filter and includes an Poer Automate Flow to notify participants about course changes. The App creates on demand a appointment entry in the user calendar.
+ 
+![Start screen with no selected course](assets/screen-01.png)
+*Start screen with no selected course*
 
+![Selected course with all details](assets/screen-02.png)
+*Selected course with all details*
 
+![Filter for courses](assets/screen-03.png)
+*Filter for courses.*
 
-![Example of a good preview](assets/goodpreview.png)
+![Show only courses for the current user](assets/screen-04.png)
+*Show only courses for the current user.*
 
-![Also a good preview](assets/alsogoodpreview.png)
+![E-Mail Notification about course changes](assets/screen-05.png)
 
-![Not so good](assets/notsogood.gif)
+*E-Mail Notification about course changes*
 
 ## Applies to
-
-<!--
-Update the applies to section below.
-
-If your solution includes all the products and features listed below, use the following:
-![Power Apps](https://img.shields.io/badge/Power%20Apps-Yes-green "Yes")
-![Power Automate](https://img.shields.io/badge/Power%20Automate-Yes-green "Yes")
-![Power BI](https://img.shields.io/badge/Power%20BI-Yes-green "Yes")
-![Power Pages](https://img.shields.io/badge/Power%20Pages-Yes-green "Yes")
-![Power Virtual Agents](https://img.shields.io/badge/Power%20Virtual%20Agents-Yes-green "Yes")
-![Dataverse](https://img.shields.io/badge/Dataverse-Yes-green "Yes")
-![AI Builder](https://img.shields.io/badge/AI%20Builder-Yes-green "Yes")
-![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-Yes-green "Yes")
-![Power Fx](https://img.shields.io/badge/Power%20Fx-Yes-green "Yes")
-
-If your solution doesn't include the products and features listed below, use the following:
-![Power Apps](https://img.shields.io/badge/Power%20Apps-No-red "No")
-![Power Automate](https://img.shields.io/badge/Power%20Automate-No-red "No")
-![Power BI](https://img.shields.io/badge/Power%20BI-No-red "No")
-![Power Pages](https://img.shields.io/badge/Power%20Pages-No-red "No")
-![Power Virtual Agents](https://img.shields.io/badge/Power%20Virtual%20Agents-No-red "No")
-![Dataverse](https://img.shields.io/badge/Dataverse-No-red "No")
-![AI Builder](https://img.shields.io/badge/AI%20Builder-No-red "No")
-![Custom Connectors](https://img.shields.io/badge/Custom%20Connectors-No-red "No")
-![Power Fx](https://img.shields.io/badge/Power%20Fx-No-red "No")
-
-PRO TIP:
-Use the above samples and copy and paste the ones that apply to you.
-
-Don't worry if you're unsure about the compatibility matrix above. We'll verify it when we approve the PR. 
--->https://github.com/maschroeder-z/PP-Online-Course-Manager/tree/main
-
 ![Power Apps](https://img.shields.io/badge/Power%20Apps-Yes-green "Yes")
 ![Power Automate](https://img.shields.io/badge/Power%20Automate-Yes-green "Yes")
 ![Power BI](https://img.shields.io/badge/Power%20BI-No-red "No")
@@ -94,13 +70,12 @@ Version|Date|Comments
 1.0|September 15, 2025|Initial release
 
 ## Prerequisites
-
-<!--
-Any special pre-requisites? Include any lists, permissions, offerings to the demo gods, or whatever else needs to be done for this sample to work.
-
-Please describe the steps to configure the pre-requisites. Feel free to add screen shots, but make sure that there is a text description of the steps to perform.
- 
--->
+The Canvas App uses SharePoint Custom lists to store and manage all information. The solution uses enviroment variables to define the concrete URL addresses for the lists.
+Following lists are needed:
+* List with all Trainings
+* List to save registered user
+* List for external trainer data (used as lookup list)
+Alle lists can be created with the JSON-file from the Lists directory with the PnP-command Add-PnPSiteScript. 
 
 ## Minimal path to awesome
 
