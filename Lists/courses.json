@@ -1,0 +1,429 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/site-design-script-actions.schema.json",
+  "actions": [
+    {
+      "verb": "createSPList",
+      "listName": "[[LExterne_Trainer_DEV0002_listName]]",
+      "templateType": 100,
+      "color": "[[LExterne_Trainer_DEV0002_color]]",
+      "icon": "[[LExterne_Trainer_DEV0002_icon]]",
+      "addNavLink": "[[LExterne_Trainer_DEV0002_addNavLink]]",
+      "description": "[[LExterne_Trainer_DEV0002_description]]",
+      "identity": "LExterne_Trainer_DEV0002",
+      "subactions": [
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field ID=\"{fa564e0f-0c70-4ab9-b863-0177e6ddd247}\" Type=\"Text\" Name=\"Title\" DisplayName=\"Titel\" Required=\"FALSE\" SourceID=\"http://schemas.microsoft.com/sharepoint/v3\" StaticName=\"Title\" FromBaseType=\"TRUE\" MaxLength=\"255\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field DisplayName=\"Vorname\" Format=\"Dropdown\" IsModern=\"TRUE\" MaxLength=\"255\" Name=\"Vorname\" Title=\"Vorname\" Type=\"Text\" ID=\"{45a65d1d-c26c-48b7-a05d-1d55d429b654}\" StaticName=\"Vorname\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field ID=\"{82642ec8-ef9b-478f-acf9-31f7d45fbc31}\" ReadOnly=\"TRUE\" Type=\"Computed\" Name=\"LinkTitle\" DisplayName=\"Titel\" DisplayNameSrcField=\"Title\" ClassInfo=\"Menu\" AuthoringInfo=\"(Hyperlink zu Element mit Menü 'Bearbeiten')\" ListItemMenuAllowed=\"Required\" LinkToItemAllowed=\"Prohibited\" SourceID=\"http://schemas.microsoft.com/sharepoint/v3\" StaticName=\"LinkTitle\" FromBaseType=\"TRUE\"><FieldRefs><FieldRef Name=\"Title\" /><FieldRef Name=\"LinkTitleNoMenu\" /><FieldRef Name=\"_EditMenuTableStart2\" /><FieldRef Name=\"_EditMenuTableEnd\" /></FieldRefs><DisplayPattern><FieldSwitch><Expr><GetVar Name=\"FreeForm\" /></Expr><Case Value=\"TRUE\"><Field Name=\"LinkTitleNoMenu\" /></Case><Default><HTML><![CDATA[<div class=\"ms-vb itx\" onmouseover=\"OnItem(this)\" CTXName=\"ctx]]></HTML><Field Name=\"_EditMenuTableStart2\" /><HTML><![CDATA[\">]]></HTML><Field Name=\"LinkTitleNoMenu\" /><HTML><![CDATA[</div>]]></HTML><HTML><![CDATA[<div class=\"s4-ctx\" onmouseover=\"OnChildItem(this.parentNode); return false;\">]]></HTML><HTML><![CDATA[<span>&nbsp;</span>]]></HTML><HTML><![CDATA[<a onfocus=\"OnChildItem(this.parentNode.parentNode); return false;\" onclick=\"PopMenuFromChevron(event); return false;\" href=\"javascript:;\" title=\"Menü öffnen\"></a>]]></HTML><HTML><![CDATA[<span>&nbsp;</span>]]></HTML><HTML><![CDATA[</div>]]></HTML></Default></FieldSwitch></DisplayPattern></Field>"
+        },
+        {
+          "verb": "addContentType",
+          "name": "Element",
+          "id": "0x01",
+          "fieldRefsXml": [
+            "<FieldRef ID=\"{fa564e0f-0c70-4ab9-b863-0177e6ddd247}\" Name=\"Title\" />",
+            "<FieldRef ID=\"{82642ec8-ef9b-478f-acf9-31f7d45fbc31}\" Name=\"LinkTitle\" DisplayName=\"Titel\" ReadOnly=\"TRUE\" />",
+            "<FieldRef ID=\"{45a65d1d-c26c-48b7-a05d-1d55d429b654}\" Name=\"Vorname\" />"
+          ]
+        },
+        {
+          "verb": "addContentType",
+          "name": "Ordner",
+          "id": "0x0120"
+        },
+        {
+          "verb": "addSPView",
+          "name": "Alle Elemente",
+          "viewFields": [
+            "LinkTitle",
+            "Vorname"
+          ],
+          "query": "",
+          "rowLimit": 30,
+          "isPaged": true,
+          "makeDefault": true,
+          "replaceViewFields": true
+        }
+      ]
+    },
+    {
+      "verb": "createSPList",
+      "listName": "[[LSchulungsangebote_DE0001_listName]]",
+      "templateType": 100,
+      "color": "[[LSchulungsangebote_DE0001_color]]",
+      "icon": "[[LSchulungsangebote_DE0001_icon]]",
+      "addNavLink": "[[LSchulungsangebote_DE0001_addNavLink]]",
+      "description": "[[LSchulungsangebote_DE0001_description]]",
+      "identity": "LSchulungsangebote_DE0001",
+      "subactions": [
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field ID=\"{fa564e0f-0c70-4ab9-b863-0177e6ddd247}\" Type=\"Text\" Name=\"Title\" DisplayName=\"Titel\" Required=\"FALSE\" SourceID=\"http://schemas.microsoft.com/sharepoint/v3\" StaticName=\"Title\" FromBaseType=\"TRUE\" MaxLength=\"255\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Note\" DisplayName=\"Beschreibung\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" NumLines=\"6\" RichText=\"TRUE\" RichTextMode=\"FullHtml\" IsolateStyles=\"TRUE\" Sortable=\"FALSE\" ID=\"{a0b84828-05ee-4cfd-9c67-58852a66fccd}\" StaticName=\"Beschreibung\" Name=\"Beschreibung\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Stichwörter\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" MaxLength=\"255\" ID=\"{f671cebc-84e7-4ac9-91c4-329d5afd3916}\" StaticName=\"Stichw_x00f6_rter\" Name=\"Stichw_x00f6_rter\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Choice\" DisplayName=\"Hauptkategorie\" Required=\"TRUE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"Dropdown\" FillInChoice=\"FALSE\" ID=\"{2c0461b0-6d1b-420a-b714-6ba9ad1ed492}\" StaticName=\"Hauptkategorie\" Name=\"Hauptkategorie\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><Default>Sprachen</Default><CHOICES><CHOICE>Sprachen</CHOICE><CHOICE>IT</CHOICE><CHOICE>Personal</CHOICE></CHOICES></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Choice\" DisplayName=\"Unterkategorie\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"Dropdown\" FillInChoice=\"FALSE\" ID=\"{82be70dc-4ce1-4398-b499-85be153695cd}\" StaticName=\"Unterkategorie\" Name=\"Unterkategorie\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><Default>Demo 01</Default><CHOICES><CHOICE>Demo 01</CHOICE><CHOICE>Demo 02</CHOICE></CHOICES></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Choice\" DisplayName=\"Level\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"Dropdown\" FillInChoice=\"FALSE\" ID=\"{7099113d-307e-4428-a550-3656ec85b6a9}\" StaticName=\"Level\" Name=\"Level\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><Default>Beginner</Default><CHOICES><CHOICE>Beginner</CHOICE><CHOICE>Fortgeschritten</CHOICE><CHOICE>Experte</CHOICE></CHOICES></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"DateTime\" DisplayName=\"Beginn der Veranstaltung\" Required=\"TRUE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"DateTime\" FriendlyDisplayFormat=\"Disabled\" ID=\"{a3054f79-682d-4111-9b64-3e3bab9b0d8b}\" StaticName=\"Beginn_x0020_der_x0020_Veranstal\" Name=\"Beginn_x0020_der_x0020_Veranstal\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"DateTime\" DisplayName=\"Ende der Veranstaltung\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"DateTime\" FriendlyDisplayFormat=\"Disabled\" ID=\"{5d038548-206f-47e1-abb1-ec7c0040cda1}\" StaticName=\"Ende_x0020_der_x0020_Veranstaltu\" Name=\"Ende_x0020_der_x0020_Veranstaltu\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Number\" DisplayName=\"Anzahl der Termine\" Required=\"TRUE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" ID=\"{a6269fb3-99f5-46cf-ab04-4e6f76897c4e}\" StaticName=\"Anzahl_x0020_der_x0020_Termine\" Name=\"Anzahl_x0020_der_x0020_Termine\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Boolean\" DisplayName=\"Online Veranstaltung\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" ID=\"{d8226115-c5c2-440a-b170-c5d56049ac2e}\" StaticName=\"Online_x0020_Veranstaltung\" Name=\"Online_x0020_Veranstaltung\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><Default>0</Default></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Choice\" DisplayName=\"Zeitbereich\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"RadioButtons\" FillInChoice=\"FALSE\" ID=\"{165d7c61-d54a-4be6-947e-ef42c60a72c7}\" StaticName=\"Zeitbereich\" Name=\"Zeitbereich\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><Default>Vormittag</Default><CHOICES><CHOICE>Vormittag</CHOICE><CHOICE>Nachmittag</CHOICE><CHOICE>ganztägig</CHOICE></CHOICES></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Choice\" DisplayName=\"Art der Veranstaltung\" Required=\"TRUE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Format=\"Dropdown\" FillInChoice=\"FALSE\" ID=\"{cfff96ca-0a0f-4a47-8095-0b39b3d2b5e9}\" StaticName=\"Art_x0020_der_x0020_Veranstaltun\" Name=\"Art_x0020_der_x0020_Veranstaltun\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\"><CHOICES><CHOICE>Training</CHOICE><CHOICE>Seminar</CHOICE><CHOICE>Schulung</CHOICE><CHOICE>Workshop</CHOICE><CHOICE>Präsentation</CHOICE></CHOICES></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Number\" DisplayName=\"Teilnehmer-Limit\" Required=\"TRUE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" Min=\"1\" ID=\"{bafd66a7-b36a-480d-b459-a8a3747f4b76}\" StaticName=\"Teilnehmer_x002d_Limit\" Name=\"Teilnehmer_x002d_Limit\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Note\" DisplayName=\"Voraussetzungen\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" NumLines=\"6\" RichText=\"FALSE\" Sortable=\"FALSE\" ID=\"{312aa68a-66af-4ef2-bd44-29629ef04fe3}\" StaticName=\"Voraussetzungen\" Name=\"Voraussetzungen\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"UserMulti\" DisplayName=\"Trainer\" List=\"UserInfo\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" ShowField=\"ImnName\" UserSelectionMode=\"PeopleOnly\" UserSelectionScope=\"0\" Mult=\"TRUE\" Sortable=\"FALSE\" ID=\"{f3014919-90ef-4152-89fe-aceb321e2934}\" StaticName=\"Trainer\" Name=\"Trainer\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPLookupFieldXml",
+          "schemaXml": "<Field Type=\"Lookup\" DisplayName=\"Externer Trainer\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" ShowField=\"Title\" UnlimitedLengthInDocumentLibrary=\"FALSE\" RelationshipDeleteBehavior=\"None\" ID=\"{a343d0ec-6d7f-4c69-87af-41c0cc9e0f86}\" StaticName=\"Externer_x0020_Trainer\" Name=\"Externer_x0020_Trainer\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+          "targetListName": "Externe-Trainer-DEV"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field DisplayName=\"Durchführungsort\" Format=\"Dropdown\" IsModern=\"TRUE\" Name=\"Durchf_x00fc_hrungsort\" Title=\"Durchführungsort\" Type=\"Location\" ID=\"{257d911a-295b-48bf-994b-338fce6330a3}\" StaticName=\"Durchf_x00fc_hrungsort\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Kurzbeschreibung\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" MaxLength=\"255\" ID=\"{3c3ffc49-4ff3-493e-a20d-4fe30782e050}\" StaticName=\"Kurzbeschreibung\" Name=\"Kurzbeschreibung\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Raum\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" MaxLength=\"255\" ID=\"{f33034f9-2e26-470c-a8f7-9e42388244da}\" StaticName=\"Raum\" Name=\"Raum\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Gebäude\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" MaxLength=\"255\" ID=\"{b1402b7b-0056-48ac-83e8-54b0eeab33ac}\" StaticName=\"Geb_x00e4_ude\" Name=\"Geb_x00e4_ude\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Ort-Hinweise\" Required=\"FALSE\" EnforceUniqueValues=\"FALSE\" Indexed=\"FALSE\" MaxLength=\"255\" ID=\"{0f878004-6eb8-4a25-be2d-0cef1970721e}\" StaticName=\"Ort_x002d_Hinweise\" Name=\"Ort_x002d_Hinweise\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Postleitzahl\" StaticName=\"PostalCode257d911a-295b-48bf-994b-338fce6330a3\" Name=\"PostalCode\" ID=\"{b9140512-7967-493a-a11c-f512608807cc}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Straße\" StaticName=\"Street257d911a-295b-48bf-994b-338fce6330a3\" Name=\"Street\" ID=\"{207aa2ab-575a-4b7f-98b3-0798fcf96777}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Geolocation\" DisplayName=\"Durchführungsort: Koordinaten\" StaticName=\"GeoLoc257d911a-295b-48bf-994b-338fce6330a3\" Name=\"GeoLoc\" ID=\"{d108738f-e44e-42d2-8769-d6392ed415ef}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Name\" StaticName=\"DispName257d911a-295b-48bf-994b-338fce6330a3\" Name=\"DispName\" ID=\"{c5aa486a-6e2a-47c1-9160-acb745ac5cca}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field ID=\"{82642ec8-ef9b-478f-acf9-31f7d45fbc31}\" ReadOnly=\"TRUE\" Type=\"Computed\" Name=\"LinkTitle\" DisplayName=\"Titel\" DisplayNameSrcField=\"Title\" ClassInfo=\"Menu\" AuthoringInfo=\"(Hyperlink zu Element mit Menü 'Bearbeiten')\" ListItemMenuAllowed=\"Required\" LinkToItemAllowed=\"Prohibited\" SourceID=\"http://schemas.microsoft.com/sharepoint/v3\" StaticName=\"LinkTitle\" FromBaseType=\"TRUE\"><FieldRefs><FieldRef Name=\"Title\" /><FieldRef Name=\"LinkTitleNoMenu\" /><FieldRef Name=\"_EditMenuTableStart2\" /><FieldRef Name=\"_EditMenuTableEnd\" /></FieldRefs><DisplayPattern><FieldSwitch><Expr><GetVar Name=\"FreeForm\" /></Expr><Case Value=\"TRUE\"><Field Name=\"LinkTitleNoMenu\" /></Case><Default><HTML><![CDATA[<div class=\"ms-vb itx\" onmouseover=\"OnItem(this)\" CTXName=\"ctx]]></HTML><Field Name=\"_EditMenuTableStart2\" /><HTML><![CDATA[\">]]></HTML><Field Name=\"LinkTitleNoMenu\" /><HTML><![CDATA[</div>]]></HTML><HTML><![CDATA[<div class=\"s4-ctx\" onmouseover=\"OnChildItem(this.parentNode); return false;\">]]></HTML><HTML><![CDATA[<span>&nbsp;</span>]]></HTML><HTML><![CDATA[<a onfocus=\"OnChildItem(this.parentNode.parentNode); return false;\" onclick=\"PopMenuFromChevron(event); return false;\" href=\"javascript:;\" title=\"Menü öffnen\"></a>]]></HTML><HTML><![CDATA[<span>&nbsp;</span>]]></HTML><HTML><![CDATA[</div>]]></HTML></Default></FieldSwitch></DisplayPattern></Field>"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Bundesland\" StaticName=\"State257d911a-295b-48bf-994b-338fce6330a3\" Name=\"State\" ID=\"{f352d7c3-b437-480b-b6d9-86040e437052}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Ort\" StaticName=\"City257d911a-295b-48bf-994b-338fce6330a3\" Name=\"City\" ID=\"{edfb50fb-e260-405d-a91b-2590c714d6a9}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addSPFieldXml",
+          "schemaXml": "<Field Type=\"Text\" DisplayName=\"Durchführungsort: Land/Region\" StaticName=\"CountryOrRegion257d911a-295b-48bf-994b-338fce6330a3\" Name=\"CountryOrRegion\" ID=\"{275ba73c-9324-4057-acbb-61a555782cb2}\" ShowInViewForms=\"TRUE\" Required=\"FALSE\" Hidden=\"FALSE\" CanToggleHidden=\"TRUE\" FieldRef=\"257d911a-295b-48bf-994b-338fce6330a3\" ReadOnly=\"TRUE\" Sealed=\"TRUE\" AllowDeletion=\"TRUE\" FromBaseType=\"TRUE\" Filterable=\"TRUE\" Sortable=\"TRUE\" />"
+        },
+        {
+          "verb": "addContentType",
+          "name": "Element",
+          "id": "0x01",
+          "fieldRefsXml": [
+            "<FieldRef ID=\"{fa564e0f-0c70-4ab9-b863-0177e6ddd247}\" Name=\"Title\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{3c3ffc49-4ff3-493e-a20d-4fe30782e050}\" Name=\"Kurzbeschreibung\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",     
+            "<FieldRef ID=\"{a0b84828-05ee-4cfd-9c67-58852a66fccd}\" Name=\"Beschreibung\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{2c0461b0-6d1b-420a-b714-6ba9ad1ed492}\" Name=\"Hauptkategorie\" Required=\"TRUE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",        
+            "<FieldRef ID=\"{82be70dc-4ce1-4398-b499-85be153695cd}\" Name=\"Unterkategorie\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",       
+            "<FieldRef ID=\"{f671cebc-84e7-4ac9-91c4-329d5afd3916}\" Name=\"Stichw_x00f6_rter\" DisplayName=\"Stichwörter\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{a6269fb3-99f5-46cf-ab04-4e6f76897c4e}\" Name=\"Anzahl_x0020_der_x0020_Termine\" Required=\"TRUE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{bafd66a7-b36a-480d-b459-a8a3747f4b76}\" Name=\"Teilnehmer_x002d_Limit\" DisplayName=\"Teilnehmer-Limit\" Required=\"TRUE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{312aa68a-66af-4ef2-bd44-29629ef04fe3}\" Name=\"Voraussetzungen\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",      
+            "<FieldRef ID=\"{7099113d-307e-4428-a550-3656ec85b6a9}\" Name=\"Level\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{a3054f79-682d-4111-9b64-3e3bab9b0d8b}\" Name=\"Beginn_x0020_der_x0020_Veranstal\" DisplayName=\"Beginn der Veranstaltung\" Required=\"TRUE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" Format=\"DateTime\" />",
+            "<FieldRef ID=\"{5d038548-206f-47e1-abb1-ec7c0040cda1}\" Name=\"Ende_x0020_der_x0020_Veranstaltu\" DisplayName=\"Ende der Veranstaltung\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" Format=\"DateTime\" />",
+            "<FieldRef ID=\"{165d7c61-d54a-4be6-947e-ef42c60a72c7}\" Name=\"Zeitbereich\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{d8226115-c5c2-440a-b170-c5d56049ac2e}\" Name=\"Online_x0020_Veranstaltung\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{0f878004-6eb8-4a25-be2d-0cef1970721e}\" Name=\"Ort_x002d_Hinweise\" DisplayName=\"Ort-Hinweise\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{257d911a-295b-48bf-994b-338fce6330a3}\" Name=\"Durchf_x00fc_hrungsort\" DisplayName=\"Durchführungsort\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" Format=\"Dropdown\" />",
+            "<FieldRef ID=\"{b1402b7b-0056-48ac-83e8-54b0eeab33ac}\" Name=\"Geb_x00e4_ude\" DisplayName=\"Gebäude\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{f33034f9-2e26-470c-a8f7-9e42388244da}\" Name=\"Raum\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{cfff96ca-0a0f-4a47-8095-0b39b3d2b5e9}\" Name=\"Art_x0020_der_x0020_Veranstaltun\" DisplayName=\"Art der Veranstaltung\" Required=\"TRUE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" Format=\"Dropdown\" />",
+            "<FieldRef ID=\"{f3014919-90ef-4152-89fe-aceb321e2934}\" Name=\"Trainer\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{a343d0ec-6d7f-4c69-87af-41c0cc9e0f86}\" Name=\"Externer_x0020_Trainer\" Required=\"FALSE\" Hidden=\"FALSE\" ReadOnly=\"FALSE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{b9140512-7967-493a-a11c-f512608807cc}\" Name=\"PostalCode\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{207aa2ab-575a-4b7f-98b3-0798fcf96777}\" Name=\"Street\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{d108738f-e44e-42d2-8769-d6392ed415ef}\" Name=\"GeoLoc\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{c5aa486a-6e2a-47c1-9160-acb745ac5cca}\" Name=\"DispName\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{82642ec8-ef9b-478f-acf9-31f7d45fbc31}\" Name=\"LinkTitle\" DisplayName=\"Titel\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{f352d7c3-b437-480b-b6d9-86040e437052}\" Name=\"State\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{edfb50fb-e260-405d-a91b-2590c714d6a9}\" Name=\"City\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />",
+            "<FieldRef ID=\"{275ba73c-9324-4057-acbb-61a555782cb2}\" Name=\"CountryOrRegion\" Required=\"FALSE\" Hidden=\"TRUE\" ReadOnly=\"TRUE\" PITarget=\"\" PrimaryPITarget=\"\" PIAttribute=\"\" PrimaryPIAttribute=\"\" Aggregation=\"\" Node=\"\" />"
+          ]
+        },
+        {
+          "verb": "addContentType",
+          "name": "Ordner",
+          "id": "0x0120"
+        },
+        {
+          "verb": "addSPView",
+          "name": "Alle Elemente",
+          "viewFields": [
+            "LinkTitle",
+            "Beschreibung",
+            "Stichw_x00f6_rter",
+            "Hauptkategorie",
+            "Unterkategorie",
+            "Level",
+            "Beginn_x0020_der_x0020_Veranstal",
+            "Ende_x0020_der_x0020_Veranstaltu",
+            "Anzahl_x0020_der_x0020_Termine",
+            "Online_x0020_Veranstaltung",
+            "Zeitbereich",
+            "Art_x0020_der_x0020_Veranstaltun",
+            "Teilnehmer_x002d_Limit",
+            "Voraussetzungen",
+            "Trainer",
+            "Externer_x0020_Trainer",
+            "Durchf_x00fc_hrungsort",
+            "Street",
+            "City",
+            "State",
+            "CountryOrRegion",
+            "PostalCode",
+            "Kurzbeschreibung",
+            "Raum",
+            "Geb_x00e4_ude",
+            "Ort_x002d_Hinweise"
+          ],
+          "query": "",
+          "rowLimit": 30,
+          "isPaged": true,
+          "makeDefault": true,
+          "replaceViewFields": true
+        },
+        {
+          "verb": "addSPView",
+          "name": "Übersicht",
+          "viewFields": [
+            "LinkTitle",
+            "Hauptkategorie",
+            "Beginn_x0020_der_x0020_Veranstal",
+            "Ende_x0020_der_x0020_Veranstaltu",
+            "Anzahl_x0020_der_x0020_Termine",
+            "Online_x0020_Veranstaltung",
+            "Art_x0020_der_x0020_Veranstaltun",
+            "Teilnehmer_x002d_Limit",
+            "Durchf_x00fc_hrungsort",
+            "Raum",
+            "Geb_x00e4_ude"
+          ],
+          "query": "",
+          "rowLimit": 30,
+          "isPaged": true,
+          "replaceViewFields": true,
+          "calendarViewStylesXml": "<CalendarViewStyle Title=\"Day\" Type=\"day\" Template=\"CalendarViewdayChrome\" Sequence=\"1\" Default=\"FALSE\" /><CalendarViewStyle Title=\"Week\" Type=\"week\" Template=\"CalendarViewweekChrome\" Sequence=\"2\" Default=\"FALSE\" /><CalendarViewStyle Title=\"Month\" Type=\"month\" Template=\"CalendarViewmonthChrome\" Sequence=\"3\" Default=\"FALSE\" /><CalendarViewStyle Title=\"Work week\" Type=\"workweek\" Template=\"CalendarViewweekChrome\" Sequence=\"4\" Default=\"FALSE\" />"  
+        },
+        {
+          "verb": "setClientFormCustomFormatter",
+          "clientFormCustomFormatter": {
+            "headerJSONFormatter": {
+              "elmType": "div",
+              "attributes": {
+                "class": "ms-borderColor-neutralTertiary"
+              },
+              "style": {
+                "width": "99%",
+                "border-top-width": "0px",
+                "border-bottom-width": "1px",
+                "border-left-width": "0px",
+                "border-right-width": "0px",
+                "border-style": "solid",
+                "margin-bottom": "16px"
+              },
+              "children": [
+                {
+                  "elmType": "div",
+                  "style": {
+                    "display": "flex",
+                    "box-sizing": "border-box",
+                    "align-items": "center"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "attributes": {
+                        "iconName": "Document",
+                        "class": "ms-fontSize-42 ms-fontWeight-regular ms-fontColor-themePrimary",
+                        "title": "Details"
+                      },
+                      "style": {
+                        "flex": "none",
+                        "padding": "0px",
+                        "padding-left": "0px",
+                        "height": "36px"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "elmType": "div",
+                  "attributes": {
+                    "class": "ms-fontColor-neutralSecondary ms-fontWeight-bold ms-fontSize-24"
+                  },
+                  "style": {
+                    "box-sizing": "border-box",
+                    "width": "100%",
+                    "text-align": "left",
+                    "padding": "21px 12px",
+                    "overflow": "hidden"
+                  },
+                  "children": [
+                    {
+                      "elmType": "div",
+                      "txtContent": "='Kursdaten für ' + [$Title]"
+                    }
+                  ]
+                }
+              ]
+            },
+            "footerJSONFormatter": "",
+            "bodyJSONFormatter": {
+              "sections": [
+                {
+                  "displayname": "Kursdaten",
+                  "fields": [
+                    "Title",
+                    "Beschreibung",
+                    "Kurzbeschreibung",
+                    "Hauptkategorie",
+                    "Unterkategorie",
+                    "Art der Veranstaltung",
+                    "Stichwörter",
+                    "Anzahl der Termine",
+                    "Teilnehmer-Limit",
+                    "Level",
+                    "Zeitbereich",
+                    "Beginn der Veranstaltung",
+                    "Ende der Veranstaltung",
+                    "Voraussetzungen",
+                    "Trainer",
+                    "Externer Trainer"
+                  ]
+                },
+                {
+                  "displayname": "Ort",
+                  "fields": [
+                    "Online Veranstaltung",
+                    "Durchführungsort",
+                    "Raum",
+                    "Gebäude",
+                    "Ort-Hinweise"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bindings": {
+    "LSchulungsangebote_DE0001_listName": {
+      "source": "Input",
+      "defaultValue": "Schulungsangebote-DEV"
+    },
+    "LSchulungsangebote_DE0001_icon": {
+      "source": "Input",
+      "defaultValue": "3"
+    },
+    "LSchulungsangebote_DE0001_description": {
+      "source": "Input",
+      "defaultValue": ""
+    },
+    "LSchulungsangebote_DE0001_color": {
+      "source": "Input",
+      "defaultValue": "5"
+    },
+    "LSchulungsangebote_DE0001_addNavLink": {
+      "source": "Input",
+      "defaultValue": "false"
+    },
+    "LExterne_Trainer_DEV0002_listName": {
+      "source": "Input",
+      "defaultValue": "Externe-Trainer-DEV"
+    },
+    "LExterne_Trainer_DEV0002_icon": {
+      "source": "Input",
+      "defaultValue": "3"
+    },
+    "LExterne_Trainer_DEV0002_description": {
+      "source": "Input",
+      "defaultValue": ""
+    },
+    "LExterne_Trainer_DEV0002_color": {
+      "source": "Input",
+      "defaultValue": "8"
+    },
+    "LExterne_Trainer_DEV0002_addNavLink": {
+      "source": "Input",
+      "defaultValue": "false"
+    }
+  }
+}

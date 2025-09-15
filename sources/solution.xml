@@ -1,0 +1,102 @@
+<ImportExportXml version="9.2.25084.140" SolutionPackageVersion="9.2" languagecode="1031" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.140" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25091.00142">
+  <SolutionManifest>
+    <UniqueName>Schulungsverwaltung</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Schulungsverwaltung" languagecode="1031" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Verwaltung von Schulungsangeboten und Anmeldungen" languagecode="1031" />
+    </Descriptions>
+    <Version>1.0.0.0</Version>
+    <Managed>1</Managed>
+    <Publisher>
+      <UniqueName>Demo_Sandbox_01</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Marc Andre" languagecode="1031" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="My Developer Demo Publisher" languagecode="1031" />
+      </Descriptions>
+      <EMailAddress>zhou@dev-sky.net</EMailAddress>
+      <SupportingWebsiteUrl>www.dev-sky.net</SupportingWebsiteUrl>
+      <CustomizationPrefix>maz</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>86102</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City>Bad Vilbel</City>
+          <County xsi:nil="true"></County>
+          <Country>Deutschland</Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1>Lupinenweg 63</Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode>61118</PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince>Hessen</StateOrProvince>
+          <Telephone1>015141455998</Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="29" id="{7444d2cb-2f83-f011-b4cc-0022485b8837}" behavior="0" />
+      <RootComponent type="300" schemaName="maz_schulungsangebote_602a6" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="maz_MailConnection" solution="Active" id.connectionreferencelogicalname="maz_MailConnection" />
+        <Dependent type="29" displayName="NotifyCourseChanges" id="{7444d2cb-2f83-f011-b4cc-0022485b8837}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="maz_SPSourceSite" solution="Active" id.connectionreferencelogicalname="maz_SPSourceSite" />
+        <Dependent type="29" displayName="NotifyCourseChanges" id="{7444d2cb-2f83-f011-b4cc-0022485b8837}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="maz_SPSourceSite" solution="Active" id.schemaname="maz_SPSourceSite" />
+        <Dependent type="EnvironmentVariableDefinition" displayName="maz_SPSourceListTraing" id.schemaname="maz_SPSourceListTraing" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

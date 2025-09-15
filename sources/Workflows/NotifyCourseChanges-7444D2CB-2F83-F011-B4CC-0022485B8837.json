@@ -1,0 +1,163 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "maz_SPSourceSite"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "maz_MailConnection"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "SPSourceSite (maz_TariningList)": {
+          "defaultValue": "https://devsky365.sharepoint.com/sites/Demo03",
+          "type": "String",
+          "metadata": {
+            "schemaName": "maz_TariningList"
+          }
+        },
+        "SPSourceListTraing (maz_SPSourceListTraing)": {
+          "defaultValue": "a0b5d3f0-9091-403a-9b90-fa07cda3834c",
+          "type": "String",
+          "metadata": {
+            "schemaName": "maz_SPSourceListTraing"
+          }
+        },
+        "SPSourceListAnmeldungen (maz_SPSourceListAnmeldungen)": {
+          "defaultValue": "c93fbab0-ae87-4355-b5dd-b8a8207c6322",
+          "type": "String",
+          "metadata": {
+            "schemaName": "maz_SPSourceListAnmeldungen",
+            "description": "Verwaltung der Anmeldungen zu Kursen."
+          }
+        }
+      },
+      "triggers": {
+        "Course_data_modified": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "4c6e41a1-b9f0-40d4-9dc1-629fdf67888b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnUpdatedItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('SPSourceSite (maz_TariningList)')",
+              "table": "@parameters('SPSourceListTraing (maz_SPSourceListTraing)')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Variable_initialisieren": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "812b10b0-0c9b-4f8d-9cc4-79ba698aa793"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "NotifyMailText",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Query_all_Participants": {
+          "runAfter": {
+            "Variable_initialisieren": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7934a8d0-2417-4185-91c7-3d933eb65d59"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "@parameters('SPSourceSite (maz_TariningList)')",
+              "table": "@parameters('SPSourceListAnmeldungen (maz_SPSourceListAnmeldungen)')",
+              "$filter": "SchulungId eq @{triggerOutputs()?['body/ID']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Inform_all_Participants": {
+          "foreach": "@outputs('Query_all_Participants')?['body/value']",
+          "actions": {
+            "Send_info_E-Mail": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "e49e3ba3-8d1a-4be2-bc5d-83b4cdff555d"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "@items('Inform_all_Participants')?['Teilnehmer/Email']",
+                  "emailMessage/Subject": "Ihr Kurs @{triggerOutputs()?['body/Title']} wurde geändert",
+                  "emailMessage/Body": "<p>Guten Tag @{items('Inform_all_Participants')?['Teilnehmer/DisplayName']},<br>\n<br>\nSie haben sich am @{formatDateTime(items('Inform_all_Participants')?['Created'],'dd.MM.yyyy')} für den Kurs @{triggerOutputs()?['body/Title']} angemeldet. Es gab Änderungen an den Kursdaten. Schauen Sie sich die Änderungen auf der Kurs-Webseite an.<br>\n<br>\nViele Grüßen,<br>\nIhr Team Schulung</p>",
+                  "emailMessage/Importance": "Normal"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Query_all_Participants": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a190e343-f45c-48fd-b016-6a763cfca320"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

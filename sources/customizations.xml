@@ -1,0 +1,98 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25084.140" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25091.00142">
+  <Entities></Entities>
+  <Roles></Roles>
+  <Workflows>
+    <Workflow WorkflowId="{7444d2cb-2f83-f011-b4cc-0022485b8837}" Name="NotifyCourseChanges">
+      <JsonFileName>/Workflows/NotifyCourseChanges-7444D2CB-2F83-F011-B4CC-0022485B8837.json</JsonFileName>
+      <Type>1</Type>
+      <Subprocess>0</Subprocess>
+      <Category>5</Category>
+      <Mode>0</Mode>
+      <Scope>4</Scope>
+      <OnDemand>0</OnDemand>
+      <TriggerOnCreate>0</TriggerOnCreate>
+      <TriggerOnDelete>0</TriggerOnDelete>
+      <AsyncAutodelete>0</AsyncAutodelete>
+      <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+      <StateCode>1</StateCode>
+      <StatusCode>2</StatusCode>
+      <RunAs>1</RunAs>
+      <IsTransacted>1</IsTransacted>
+      <IntroducedVersion>1.0.0.0</IntroducedVersion>
+      <IsCustomizable>1</IsCustomizable>
+      <BusinessProcessType>0</BusinessProcessType>
+      <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+      <ModernFlowType>0</ModernFlowType>
+      <PrimaryEntity>none</PrimaryEntity>
+      <LocalizedNames>
+        <LocalizedName languagecode="1031" description="NotifyCourseChanges" />
+      </LocalizedNames>
+    </Workflow>
+  </Workflows>
+  <FieldSecurityProfiles></FieldSecurityProfiles>
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings>
+    <general>
+      <fullnameconventioncode>1</fullnameconventioncode>
+      <numberformat>eu</numberformat>
+      <negativeformatcode>1</negativeformatcode>
+      <currencysymbol>€</currencysymbol>
+      <currencyformatcode>3</currencyformatcode>
+      <pricingdecimalprecision>2</pricingdecimalprecision>
+      <sharetopreviousowneronassign>False</sharetopreviousowneronassign>
+      <blockedattachments>ade;adp;app;asa;ashx;asmx;asp;bas;bat;cdx;cer;chm;class;cmd;com;config;cpl;crt;csh;dll;exe;fxp;hlp;hta;htr;htw;ida;idc;idq;inf;ins;isp;its;jar;js;jse;ksh;lnk;mad;maf;mag;mam;maq;mar;mas;mat;mau;mav;maw;mda;mdb;mde;mdt;mdw;mdz;msc;msh;msh1;msh1xml;msh2;msh2xml;mshxml;msi;msp;mst;ops;pcd;pif;prf;prg;printer;pst;reg;rem;scf;scr;sct;shb;shs;shtm;shtml;soap;stm;tmp;url;vb;vbe;vbs;vsmacros;vss;vst;vsw;ws;wsc;wsf;wsh</blockedattachments>
+      <getstartedpanecontentenabled>True</getstartedpanecontentenabled>
+      <ispresenceenabled>True</ispresenceenabled>
+      <isautosaveenabled>True</isautosaveenabled>
+      <globalhelpurl></globalhelpurl>
+      <globalhelpurlenabled>False</globalhelpurlenabled>
+      <globalappendurlparametersenabled>False</globalappendurlparametersenabled>
+      <istextwrapenabled>True</istextwrapenabled>
+      <enablelivepersonacarduci>True</enablelivepersonacarduci>
+      <allowlegacydialogsembedding>True</allowlegacydialogsembedding>
+    </general>
+  </OrganizationSettings>
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <CanvasApps>
+    <CanvasApp>
+      <Name>maz_schulungsangebote_602a6</Name>
+      <AppVersion>2025-09-15T05:58:42Z</AppVersion>
+      <Status>Ready</Status>
+      <CreatedByClientVersion>3.25091.7.0</CreatedByClientVersion>
+      <MinClientVersion>3.25091.7.0</MinClientVersion>
+      <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25091.7","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20250828T045515Z-3.25082.8.0"}</Tags>
+      <IsCdsUpgraded>0</IsCdsUpgraded>
+      <GalleryItemId xsi:nil="true"></GalleryItemId>
+      <BackgroundColor>rgba(184, 0, 0, 1)</BackgroundColor>
+      <DisplayName>Kursverwaltung</DisplayName>
+      <Description>Bietet eine Power Platform Canvas App zur Verwaltung von Lernkursen. Verwaltete Kursangebote ermöglichen die Anmeldung zu Kursen. Die App verwaltet die verfügbaren Plätze, bietet einen Kursfilter und enthält einen Power Automate Flow, um Teilnehmer über Kursänderungen zu informieren. Die App erstellt bei Bedarf einen Termineintrag im Benutzerkalender.</Description>
+      <CommitMessage xsi:nil="true"></CommitMessage>
+      <Publisher xsi:nil="true"></Publisher>
+      <AuthorizationReferences>[]</AuthorizationReferences>
+      <ConnectionReferences>{"1b4ce8fd-8d71-46b8-bf7a-de57bba71ac8":{"id":"/providers/microsoft.powerapps/apis/shared_sharepointonline","displayName":"SharePoint","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1762/1.0.1762.4298/sharepointonline/icon.png","dataSources":["SPSourceListTraing","SPSourceListAnmeldungen"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"https://devsky365.sharepoint.com/sites/Demo03_maz_TariningList":{"datasetOverride":{"name":"https://devsky365.sharepoint.com/sites/Demo03","environmentVariableName":"maz_TariningList"},"dataSources":{"SPSourceListTraing":{"tableName":"a0b5d3f0-9091-403a-9b90-fa07cda3834c","tableNameOverride":{"name":"a0b5d3f0-9091-403a-9b90-fa07cda3834c","environmentVariableName":"maz_SPSourceListTraing"}},"SPSourceListAnmeldungen":{"tableName":"c93fbab0-ae87-4355-b5dd-b8a8207c6322","tableNameOverride":{"name":"c93fbab0-ae87-4355-b5dd-b8a8207c6322","environmentVariableName":"maz_SPSourceListAnmeldungen"}}}}},"apiTier":"Standard","actions":["providers/PowerPlatform.Governance/Operations/Read","providers/PowerPlatform.Governance/Operations/Write","providers/PowerPlatform.Governance/Operations/Delete"]},"73bb24bd-cd35-450a-9246-2d559c927b03":{"id":"/providers/microsoft.powerapps/apis/shared_office365","displayName":"Office 365 Outlook","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1763/1.0.1763.4311/office365/icon.png","dataSources":["Office365Outlook"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["V4CalendarPostItem"]},"89b6ddc3-0f8d-4dcc-906e-c023cc16031b":{"id":"/providers/microsoft.powerapps/apis/shared_office365groups","displayName":"Office 365-Gruppen","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/1759/1.0.1759.4274/office365groups/icon.png","dataSources":["Office365-Gruppen"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["HttpRequest"]}}</ConnectionReferences>
+      <DatabaseReferences>{}</DatabaseReferences>
+      <AppComponents>[]</AppComponents>
+      <AppComponentDependencies>[]</AppComponentDependencies>
+      <CanConsumeAppPass>1</CanConsumeAppPass>
+      <CanvasAppType>0</CanvasAppType>
+      <BypassConsent>0</BypassConsent>
+      <AdminControlBypassConsent>0</AdminControlBypassConsent>
+      <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+      <IntroducedVersion>1.0</IntroducedVersion>
+      <CdsDependencies>{"cdsdependencies":[{"logicalname":"maz_TariningList","componenttype":380,"componenttypeplatformname":"EnvironmentVariableDefinition"},{"logicalname":"maz_SPSourceListTraing","componenttype":380,"componenttypeplatformname":"EnvironmentVariableDefinition"},{"logicalname":"maz_SPSourceListAnmeldungen","componenttype":380,"componenttypeplatformname":"EnvironmentVariableDefinition"}]}</CdsDependencies>
+      <IsCustomizable>1</IsCustomizable>
+      <BackgroundImageUri>/CanvasApps/maz_schulungsangebote_602a6_BackgroundImageUri</BackgroundImageUri>
+      <DocumentUri>/CanvasApps/maz_schulungsangebote_602a6_DocumentUri.msapp</DocumentUri>
+      <AdditionalUris>
+        <AdditionalUri>/CanvasApps/maz_schulungsangebote_602a6_AdditionalUris0_identity.json</AdditionalUri>
+      </AdditionalUris>
+    </CanvasApp>
+  </CanvasApps>
+  <Languages>
+    <Language>1031</Language>
+  </Languages>
+</ImportExportXml>

@@ -1,0 +1,18 @@
+<environmentvariabledefinition schemaname="maz_SPSourceListAnmeldungen">
+  <apiid>/providers/microsoft.powerapps/apis/shared_sharepointonline</apiid>
+  <description default="Verwaltung der Anmeldungen zu Kursen.">
+    <label description="Verwaltung der Anmeldungen zu Kursen." languagecode="1031" />
+  </description>
+  <displayname default="SPSourceListAnmeldungen">
+    <label description="SPSourceListAnmeldungen" languagecode="1031" />
+  </displayname>
+  <introducedversion>1.0.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <parameterkey>table</parameterkey>
+  <parentdefinitionid>
+    <schemaname>maz_TariningList</schemaname>
+  </parentdefinitionid>
+  <secretstore>0</secretstore>
+  <type>100000004</type>
+</environmentvariabledefinition>
